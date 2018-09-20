@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Star Social</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'simplesocial/css/master.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg mynav" role="navigation" id="navbar">
+      <div class="container">
+        <a class="navbar-brand mynav" href="{% url 'home' %}">Star Social</a>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+            <li><a class="nav-link" href="{% url 'posts:create' %}">Post</a></li>
+            <li><a class="nav-link" href="{% url 'groups:all' %}">Groups</a></li>
+            <li><a class="nav-link" href="{% url 'groups:create' %}">Create group</a></li>
+            <li><a class="nav-link" href="{% url 'accounts:logout' %}">Log out</a></li>
+          {% else %}
+            <li><a class="nav-link" href="{% url 'groups:all' %}">Groups</a></li>
+            <li><a class="nav-link" href="{% url 'accounts:login' %}">Log In</a></li>
+            <li><a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+    <canvas id="canvas"></canvas>
+    <span id="note">Click to add fireflies</span>
+<script type="text/javascript" src='{% static "simplesocial/js/master.js" %}'>
+
+</script>
+  </body>
+
+</html>

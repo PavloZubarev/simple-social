@@ -1,0 +1,5 @@
+*.pyc
+__pycache__
+myDjangoEnv
+/static
+db.sqlite3
