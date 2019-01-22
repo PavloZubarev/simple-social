@@ -1,5 +1,6 @@
 {% extends "groups/group_base.html" %}
 {% block pregroup %}
+
 <div class="col-md-4">
 
 
@@ -20,7 +21,7 @@
 {% endblock %}
 
 {% block group_content %}
-  <div class="col-md-8">
+  <div class="col-md-8 post-list">
     {% if group.posts.count == 0 %}
       <h2>No posts in this group yet!</h2>
     {% else %}

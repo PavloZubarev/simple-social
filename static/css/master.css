@@ -24,3 +24,7 @@ body {
   user-select: none;
   font-family: Arial;
 }
+
+.post-list {
+    overflow: scroll;
+}
